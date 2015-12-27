@@ -1,0 +1,10 @@
+/bin/
+/project
+/target
+.classpath
+.gitignore~
+.project
+.settings/
+.cache
+/root/target/
+/fraction/target/
