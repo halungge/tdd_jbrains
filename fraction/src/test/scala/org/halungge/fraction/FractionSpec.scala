@@ -16,9 +16,24 @@ class FractionSpec extends WordSpec with Matchers {
       new Fraction(2, 4) should be(new Fraction(1, 2))
     }
     "be equal to an integer if it has denominator 1" in {
-    areEqual(4, new Fraction(4,1)) should be(true)      
-    areEqual(fraction, new Fraction(2, 3)) should be (true)
+     val intFraction = new Fraction(4,1)
+      areEqual(4, intFraction) should be(true)
+      areEqual(intFraction, 4) should be(true)
     }
+
+    "be equal to itself " in {
+    	areEqual(fraction, new Fraction(2, 3)) should be (true)
+    }
+    " with negative enum is equal to the fraction with negative denom" in {
+      new Fraction(-1, 3) should be (new Fraction(1, -3))
+    }
+    "obey minus times minus is plus" in {
+      new Fraction(1, 3) should be(new Fraction(-1,-3))
+    }
+    "should be smaller than 0 when denom or enum are negative" in {
+      new Fraction(-1,3) < 0 should be(true)
+    }
+    
   }
 
   "addition for fraction " should {
@@ -37,12 +52,27 @@ class FractionSpec extends WordSpec with Matchers {
     " be commutative" in {
       f1 + f2 should be(f2 + f1) 
     }
+    
+  }
+  "comparison for Fraction " should {
+    " should implement < correctly " in{
+      val small = new Fraction(1, 3)
+      val large = new Fraction(8,9)
+      small < large should be(true)
+      small < small should be(false)
+      large < small should be(false)
+    }
+    " should implement > correctly " in{
+      val small = new Fraction(1, 3)
+      val large = new Fraction(8,9)
+      large > small should be(true)
+      large > large should be(false)
+      small > large should be(false)
+    }
+    
   }
 
 
-  //  " a Fraction with denom=1 " should " equal its Integer representation " in {
-  //    new Fraction(4, 1) should be(4)
-  //  }
-  //  
+  
 
 }
