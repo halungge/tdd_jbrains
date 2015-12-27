@@ -16,9 +16,9 @@ class FractionSpec extends WordSpec with Matchers {
     }
   }
 
-  "two fractions " should {
+  "addition for fraction " should {
     val f1 = new Fraction(7, 3)
-    " sum up correctly " in {
+    " sum two fractions  correctly " in {
       val f2 = new Fraction(4, 5)
       f1 + f2 should be(new Fraction(47, 15))
     }
@@ -26,13 +26,11 @@ class FractionSpec extends WordSpec with Matchers {
       val f2 = new Fraction(0, 3)
       f1 + f2 should be(f1)
     }
-  }
-
-  "a Integer and a Fraction " should {
-    " add correctly to Fraction" in {
-      5 + new Fraction(4, 3) should be(new Fraction(19, 3))
+    " add correctly an Int and a Fraction" in {
+    	5 + f1 should be(new Fraction(22, 3))
     }
   }
+
 
   //  " a Fraction with denom=1 " should " equal its Integer representation " in {
   //    new Fraction(4, 1) should be(4)
