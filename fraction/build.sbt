@@ -1,10 +1,14 @@
-version := "0.2"
+name := "fraction"
+
+organization      := "org.halungge"
+
+version := "0.1.0-SNAPSHOT"
 
 scalaVersion := "2.11.6"
 
 exportJars := true
 
-name := "tdd_jbrains-fraction"
+publishMavenStyle := true
 
 
 resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"

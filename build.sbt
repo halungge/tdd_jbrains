@@ -9,9 +9,7 @@ lazy val fraction = project.in(file("fraction"))
 
 lazy val root = project.in(file("root"))
 	.settings(commonSettings:_*)
-	.aggregate(fraction)
-	.dependsOn(fraction)
-
+	
 
 
 
