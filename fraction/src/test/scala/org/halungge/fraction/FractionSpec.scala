@@ -5,14 +5,19 @@ import org.scalatest.FlatSpec
 import org.scalatest.WordSpec
 
 class FractionSpec extends WordSpec with Matchers {
+	val fraction = new Fraction(2, 3)
+  import Fraction._
   "a Fraction" should {
     "have a denominator and an enumerator " in {
-      val fraction = new Fraction(2, 3)
       fraction.enum should be(2)
       fraction.denom should be(3)
     }
     "be maximally reduced " in {
       new Fraction(2, 4) should be(new Fraction(1, 2))
+    }
+    "be equal to an integer if it has denominator 1" in {
+    areEqual(4, new Fraction(4,1)) should be(true)      
+    areEqual(fraction, new Fraction(2, 3)) should be (true)
     }
   }
 
