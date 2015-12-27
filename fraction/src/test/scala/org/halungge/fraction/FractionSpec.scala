@@ -18,8 +18,8 @@ class FractionSpec extends WordSpec with Matchers {
 
   "addition for fraction " should {
     val f1 = new Fraction(7, 3)
+    val f2 = new Fraction(4, 5)
     " sum two fractions  correctly " in {
-      val f2 = new Fraction(4, 5)
       f1 + f2 should be(new Fraction(47, 15))
     }
     " be neutral under addition" in {
@@ -28,6 +28,9 @@ class FractionSpec extends WordSpec with Matchers {
     }
     " add correctly an Int and a Fraction" in {
     	5 + f1 should be(new Fraction(22, 3))
+    }
+    " be commutative" in {
+      f1 + f2 should be(f2 + f1) 
     }
   }
 
